@@ -1,0 +1,93 @@
+
+
+
+-------------------------------------------------
+start time            : Sat May 19 23:19:51 2018
+GMS version           : 4.32 April 2015
+working directory     : /home/sara/bfagi/gmsuite
+command line          : --phage --faa /home/sara/bfagi//bakteriofagi/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /home/sara/bfagi//bakteriofagi/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /home/sara/bfagi/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/home/sara/bfagi/gmsuite/probuild --par /home/sara/bfagi/gmsuite/par_11.default  --clean_join sequence --seq /home/sara/bfagi//bakteriofagi/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/home/sara/bfagi/gmsuite/probuild --par /home/sara/bfagi/gmsuite/par_11.default  --clean_join sequence --seq /home/sara/bfagi//bakteriofagi/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/home/sara/bfagi/gmsuite/probuild --par /home/sara/bfagi/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /home/sara/bfagi/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /home/sara/bfagi/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/home/sara/bfagi/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+Error on last system call, error code 256
+Abort program!!!

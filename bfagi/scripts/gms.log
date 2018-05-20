@@ -1,0 +1,4753 @@
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 02:27:19 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 02:27:20 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 02:28:04 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 02:28:04 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 02:37:22 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 02:37:22 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 02:37:31 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 02:37:32 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 02:37:55 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 02:37:56 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:25:50 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 03:25:50 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:27:09 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/p1.fasta
+output file with predictions : p1.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/p1.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : p1.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/p1.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 94800   94800
+Unambiguous letters - 94800 94800
+A - 24591 24591
+C - 22555 22555
+G - 22296 22296
+T - 25358 25358
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 1
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 47
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+build model: itr_1.mod for iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_1.mod --seq sequence --geneset itr_0.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.1 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.1 6 -o gibbs_out.1 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.1 --mod itr_1.mod --seq startseq.1 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.016
+-31	0.021
+-30	0.016
+-29	0.019
+-28	0.029
+-27	0.021
+-26	0.024
+-25	0.024
+-24	0.016
+-23	0.016
+-22	0.021
+-21	0.019
+-20	0.021
+-19	0.019
+-18	0.021
+-17	0.021
+-16	0.029
+-15	0.021
+-14	0.021
+-13	0.016
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.035
+-8	0.064
+-7	0.099
+-6	0.059
+-5	0.037
+-4	0.027
+-3	0.024
+-2	0.040
+-1	0.035
+0	0.029
+Pos   A   C   G   T
+1 0.477 0.023 0.136 0.364
+2 0.068 0.023 0.341 0.568
+3 0.318 0.023 0.432 0.227
+4 0.591 0.227 0.023 0.159
+5 0.250 0.091 0.636 0.023
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 1
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_1.mod  -o itr_1.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_1.lst --target itr_0.lst
+compare itr_0.lst and itr_1.lst: 0.8430
+build model: itr_2.mod for iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_2.mod --seq sequence --geneset itr_1.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.2 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.2 6 -o gibbs_out.2 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.2 --mod itr_2.mod --seq startseq.2 --log gms.log
+-34	0.026
+-33	0.018
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.016
+-27	0.026
+-26	0.034
+-25	0.026
+-24	0.018
+-23	0.021
+-22	0.016
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.026
+-10	0.034
+-9	0.037
+-8	0.061
+-7	0.071
+-6	0.061
+-5	0.071
+-4	0.082
+-3	0.042
+-2	0.024
+-1	0.016
+0	0.011
+Pos   A   C   G   T
+1 0.778 0.022 0.022 0.178
+2 0.022 0.133 0.489 0.356
+3 0.200 0.022 0.578 0.200
+4 0.622 0.178 0.178 0.022
+5 0.222 0.022 0.556 0.200
+6 0.022 0.022 0.933 0.022
+
+system call done
+prediction, iteration: 2
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_2.mod  -o itr_2.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_2.lst --target itr_1.lst
+compare itr_1.lst and itr_2.lst: 0.9677
+build model: itr_3.mod for iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --mkmod itr_3.mod --seq sequence --geneset itr_2.lst --ORDM 2 --order_non 2 --revcomp_non 1 --pre_start startseq.3 --PRE_START_WIDTH 40
+system call done
+run gibbs3 sampler
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/Gibbs3 startseq.3 6 -o gibbs_out.3 -F -Z  -n -r -y -x -m -s 1 -w 0.01
+system call done
+make prestart model
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gibbs gibbs_out.3 --mod itr_3.mod --seq startseq.3 --log gms.log
+-34	0.027
+-33	0.019
+-32	0.013
+-31	0.016
+-30	0.021
+-29	0.016
+-28	0.013
+-27	0.019
+-26	0.032
+-25	0.027
+-24	0.016
+-23	0.013
+-22	0.013
+-21	0.013
+-20	0.013
+-19	0.016
+-18	0.021
+-17	0.016
+-16	0.013
+-15	0.021
+-14	0.037
+-13	0.021
+-12	0.016
+-11	0.027
+-10	0.035
+-9	0.037
+-8	0.061
+-7	0.072
+-6	0.061
+-5	0.072
+-4	0.083
+-3	0.045
+-2	0.032
+-1	0.019
+0	0.011
+Pos   A   C   G   T
+1 0.795 0.023 0.023 0.159
+2 0.023 0.136 0.477 0.364
+3 0.182 0.023 0.591 0.205
+4 0.614 0.182 0.182 0.023
+5 0.205 0.023 0.568 0.205
+6 0.023 0.023 0.932 0.023
+
+system call done
+prediction, iteration: 3
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_3.mod  -o itr_3.lst -r
+system call done
+compare:
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --compare --source itr_3.lst --target itr_2.lst
+compare itr_2.lst and itr_3.lst: 1.0000
+Stopped iterations on identity: 1.0000
+output: GeneMark_hmm.mod
+cp itr_3.mod GeneMark_hmm.mod
+system call done
+Create combined model: GeneMark_hmm_combined.mod
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default   --combine GeneMark_hmm_combined.mod  --first itr_3.mod  --second /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod
+system call done
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_47.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using combined model with motif
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A p1.fasta.faa  -o p1.fasta.lst  /Users/mdylag/workspaces/biohackathon/p1.fasta  -r -m GeneMark_hmm_combined.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst itr_1.mod startseq.1 gibbs_out.1 itr_1.lst itr_2.mod startseq.2 gibbs_out.2 itr_2.lst itr_3.mod startseq.3 gibbs_out.3 itr_3.lst
+system call done
+End: Sun May 20 03:27:09 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:28:40 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:28:41 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:30:34 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:30:34 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:30:46 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:30:46 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:31:47 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:31:47 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:32:46 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:32:46 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:32:52 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:32:52 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:33:12 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:33:12 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:34:23 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:34:23 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:35:09 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:35:09 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:35:56 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:35:56 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:37:48 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:37:48 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:39:07 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:39:07 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:39:16 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:39:16 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:41:15 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:41:15 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:51:41 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:51:41 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:51:57 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:51:57 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 03:52:37 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 03:52:37 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:15:00 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:15:00 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:15:30 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:15:30 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:17:28 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:17:28 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:17:39 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:17:39 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:17:49 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:17:49 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:17:56 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:17:56 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 04:18:15 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 04:18:15 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 08:06:00 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 08:06:00 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 08:06:16 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 08:06:16 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 08:06:24 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 08:06:24 2018
+
+
+
+
+-------------------------------------------------
+start time            : Sun May 20 08:06:29 2018
+GMS version           : 4.29 September 2014
+working directory     : /Users/mdylag/workspaces/biohackathon/scripts
+command line          : --phage --faa /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output file with predictions : mh179470.fasta.lst
+input sequence        : /Users/mdylag/workspaces/biohackathon/mh179470.fasta
+output name for model : 
+combine model         : 1
+GeneMark model        : 
+species name          : 
+delete temp files     : 1
+markov chain order    : 2
+non-coding order      : 2
+genetic code          : 11
+sequence organization : partial
+search for motif      : 1
+motif width           : 6
+prestart length       : 40
+identity threshold    : 0.99
+maximum iteration     : 10
+fixed motif position  : 
+gene overlap off      : 
+strand to predict on  : both
+mode prokaryotic      : 
+mode eukaryotic       : 
+mode virus            : 
+mode phage            : 1
+mode est              : 
+GeneMarkS parameters  : /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default
+initial hmm model     : 
+output format         : LST
+output PostScript     : 
+output PDF            : 
+output nucleotides    : 
+output proteins       : mh179470.fasta.faa
+gibbs version         : 3
+heuristic version     : 2
+evidense data file    : 
+combine native with   : 
+use input defline     : 
+
+      run starts here:
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 1000
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+  Minimum of unambiguous letters in output: 50000
+system call done
+prepare sequence
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --clean_join sequence --seq /Users/mdylag/workspaces/biohackathon/mh179470.fasta --log gms.log --MIN_CONTIG_SIZE 0 --GAP_FILLER 
+Clean-Join      IN   OUT
+Contigs - 1 1
+All letters - 47828   47828
+Unambiguous letters - 47828 47828
+A - 11060 11060
+C - 13053 13053
+G - 13637 13637
+T - 10078 10078
+N - 0 0
+Parameters:
+  Minimum of unambiguous letters per record: 0
+  Trim down substrings "N...N" to maximum length: 50
+  Connect records using gap filler: 
+  Minimum of unambiguous letters in output: 50000
+system call done
+do_iterations = 0
+set initial <gmhmmp> model
+get GC
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/probuild --par /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/par_11.default  --gc --seq sequence
+GC of sequence = 56
+initial <gmhmm> model: /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod
+copy initial model to working directory
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod  itr_0.mod
+system call done
+run initial prediction
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11   sequence  -m itr_0.mod  -o itr_0.lst
+system call done
+entering iteration loop
+output initial model: GeneMark_hmm_heuristic.mod
+cp /Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/heuristic_mod/heu_11_56.mod GeneMark_hmm_heuristic.mod
+system call done
+predict genes using heuristic
+/Users/mdylag/workspaces/biohackathon/genemark_suite_macosx/gmsuite/gmhmmp -g 11  -A mh179470.fasta.faa  -o mh179470.fasta.lst  /Users/mdylag/workspaces/biohackathon/mh179470.fasta  -m GeneMark_hmm_heuristic.mod 
+system call done
+rm -f sequence itr_0.mod itr_0.lst
+system call done
+End: Sun May 20 08:06:29 2018
+
